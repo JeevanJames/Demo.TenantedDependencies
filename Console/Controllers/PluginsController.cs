@@ -8,7 +8,7 @@ namespace Console.Controllers
     public class PluginsController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<string> GetValue([FromServices]PluginDependency<IMyService> myServicePlugin)
+        public ActionResult<string> GetValue([FromServices]IPlugin<IMyService> myServicePlugin)
         {
             IMyService myService = myServicePlugin.Get();
             return myService.GetValue();
